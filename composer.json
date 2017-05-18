@@ -1,0 +1,15 @@
+{
+	"name": "nate/blogger",
+	"authors": [
+                {
+                    "name": "Nate Hascup",
+                    "email": "nshascup@gmail.com"
+                    }
+    ],
+    "require": {
+        "bcosca/fatfree-core": "dev-master"
+    },
+	"autoload": {
+		"classmap": ["model/", "classes/"]    
+    }
+}
