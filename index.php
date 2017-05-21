@@ -7,6 +7,7 @@
 	
 	//Require the autoload file
     require_once('vendor/autoload.php');
+	
     //session_start();
 	session_start();
 
@@ -16,11 +17,22 @@
 	//Set debug level
 	$f3->set('DEBUG', 3);
 	
+	//Instantiate the database class
+	$bloggerDB = new BlogsDB();
+	
     //Define a default route    
 	$f3->route('GET /',
-		function() {            
-			 $view = new View;
-			 echo $view->render('pages/home.html');        
+		function($f3) {
+  
+			//Get all bloggers from the database
+			$bloggers = $GLOBALS['bloggerDB']->allBloggers();
+			
+			//Assign the pets to an f3 variable
+			$f3->set('bloggers', $bloggers);
+			
+			//display page
+			$view = new View;
+			echo $view->render('pages/index.html');        
 		 });
 	
 	/*$f3->route('GET /create',

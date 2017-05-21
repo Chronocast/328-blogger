@@ -13,7 +13,7 @@
         function __construct()
         {
             //Require configuration file
-
+            require_once '/home/nhascup/config.php';
             
             try {
                 //Establish database connection
@@ -43,14 +43,14 @@
          *
          * @return true if the insert was successful, otherwise false
          */
-        function addBlog($username)
+        function addBlog($blogName, $blogContent, $username)
         {
-            $insert = 'INSERT INTO blogger (blogName, blogContent, username) VALUES (:blogName, :blogContent, :username)';
+            $insert = 'INSERT INTO blogger (blogName, blogContent, author) VALUES (:blogName, :blogContent, :author)';
              
             $statement = $this->_pdo->prepare($insert);
             $statement->bindValue(':blogName', $username, PDO::PARAM_STR);
             $statement->bindValue(':blogContent', $username, PDO::PARAM_STR);
-            $statement->bindValue(':username', $username, PDO::PARAM_STR);
+            $statement->bindValue(':author', $author, PDO::PARAM_STR);
             
             $statement->execute();
             
@@ -68,7 +68,7 @@
          */
         function addBlogger($username)
         {
-            $insert = 'INSERT INTO blogs (username) VALUES (:username)';
+            $insert = 'INSERT INTO blogger (username) VALUES (:username)';
              
             $statement = $this->_pdo->prepare($insert);
             $statement->bindValue(':username', $username, PDO::PARAM_STR);
@@ -81,22 +81,22 @@
          
         //READ
         /**
-         * Returns all pets in the database collection.
+         * Returns all bloggers in the database collection.
          *
          * @access public
          *
-         * @return an associative array of pets indexed by id
+         * @return an associative array of bloggers indexed by userID
          */
-        function allPets()
+        function allBloggers()
         {
-            $select = 'SELECT id, name, type, color FROM pets';
+            $select = 'SELECT userID, username FROM blogger';
             $results = $this->_pdo->query($select);
              
             $resultsArray = array();
              
-            //map each pet id to a row of data for that pet
+            //map each user id to a row of data for that user
             while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
-                $resultsArray[$row['id']] = $row;
+                $resultsArray[$row['userID']] = $row;
             }
              
             return $resultsArray;
@@ -111,16 +111,17 @@
          * @return an associative array of pet attributes, or false if
          * the pet was not found
          */
-        function petById($id)
+        
+        /*function bloggerById($id)
         {
-            $select = 'SELECT id, name, type, color FROM pets WHERE id=:id';
+            $select = 'SELECT userID, username, blogCount FROM blogger WHERE userID=:id';
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
             $statement->execute();
              
             return $statement->fetch(PDO::FETCH_ASSOC);
-        }
+        }*/
          
         /**
          * Returns true if the name is used by a pet in the database.
@@ -130,7 +131,8 @@
          *
          * @return true if the name already exists, otherwise false
          */   
-        function petNameExists($name)
+        
+        /*function userExists($name)
         {            
             $select = 'SELECT id, name, type, color FROM pets WHERE name=:name';
              
@@ -143,7 +145,7 @@
             return !empty($row);
         }
         
-        function petNameExists($name)
+        function blogExists($name)
         {            
             $select = 'SELECT id, name, type, color FROM pets WHERE name=:name';
              
@@ -154,7 +156,7 @@
             $row = $statement->fetch(PDO::FETCH_ASSOC);
              
             return !empty($row);
-        }
+        }*/
          
         //UPDATE
       
@@ -167,7 +169,8 @@
          * @param string $type the type of pet (giraffe, turtle, bear, ...)
          * @param string $color the color of the animal
          */  
-        function updatePet($id, $name, $type, $color)
+        
+        /*function updateUser($id, $name, $type, $color)
         {          
             $update = 'UPDATE pets SET name=:name, type=:type, color=:color
                                    WHERE id=:id';
@@ -181,7 +184,7 @@
             $statement->execute();
         }
         
-        function updatePet($id, $name, $type, $color)
+        function updateBlog($id, $name, $type, $color)
         {          
             $update = 'UPDATE pets SET name=:name, type=:type, color=:color
                                    WHERE id=:id';
@@ -193,7 +196,7 @@
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
              
             $statement->execute();
-        }
+        }*/
          
         //DELETE
          
@@ -205,9 +208,10 @@
          *
          * @return true if the delete was successful, otherwise false
          */
-        function deleteBlog($id)
+        
+        /*function deleteBlog($id)
         {        
-            $delete = 'DELETE FROM pets WHERE id=:id';
+            $delete = 'DELETE FROM blogs WHERE id=:id';
              
             $statement = $this->_pdo->prepare($delete);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -215,13 +219,13 @@
             return $statement->execute();
         }
         
-        function deleteBlog($id)
+        function deleteUser($id)
         {        
-            $delete = 'DELETE FROM pets WHERE id=:id';
+            $delete = 'DELETE FROM blogs WHERE id=:id';
              
             $statement = $this->_pdo->prepare($delete);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
              
             return $statement->execute();
-        }
+        }*/
     }
