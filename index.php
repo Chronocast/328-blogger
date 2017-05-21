@@ -2,93 +2,61 @@
 	/*
 	*Author: Nate Hascup
 	*Greenriver IT 328
-	*Dating Form 1 Page
+	*Blog Assignment
 	*/
 	
-	
 	//Require the autoload file
-	require_once('vendor/autoload.php');
-	
+    require_once('vendor/autoload.php');
+    //session_start();
 	session_start();
 
 	//Create an instance of the Base class    
-	$f3 = Base::instance();            
-    
+	$f3 = Base::instance();        
+
+	//Set debug level
+	$f3->set('DEBUG', 3);
+	
     //Define a default route    
-	$f3->route('GET /', function() {            
-			$view = new View;
-			echo $view->render('pages/home.html');        
-		}    
-	);
+	$f3->route('GET /',
+		function() {            
+			 $view = new View;
+			 echo $view->render('pages/home.html');        
+		 });
 	
-	//Define form 1 route    
-	$f3->route('GET /form1', function() {            
-			$view = new View;
+	/*$f3->route('GET /create',
+		function() {            
+		    $view = new View;
 			echo $view->render('pages/form1.html');        
-		}    
-	);
+		 });
 	
-	//Define form 2 route    
-	$f3->route('POST /form2', function() {
-			//Premium yes/no?
-			if(isset($_POST['premium']))
-			{
-				$member = new Premium();
-			}else{
-				$member = new Member();
-			}
-			
-			$member->setFirst($_POST['first']);
-			$member->setLast($_POST['last']);
-			$member->setAge($_POST['age']);
-			$member->setGender($_POST['gender']);
-			$member->setCell($_POST['cell']);
-			
-			$_SESSION['member'] = $member;
+	$f3->route('POST /form2',
+		function() {
+			//Create a pet object
+			$p = new Pet();
+			$p->setName($_POST['pet-name']);
+			$_SESSION['pet'] = $p;
 			
 			$view = new View;
-			echo $view->render('pages/form2.html');        
-		}    
-	);
-	
-	//Define form 3 route    
-	$f3->route('POST /form3', function() {
+		    echo $view->render('pages/form2.html');
+			print_r($_SESSION);
+		});
+		
+	$f3->route('POST /results',
+		function($f3) {
+			//Get the pet object from the session
+			$p = $_SESSION['pet'];
 			
-			$member = $_SESSION['member'];
+			//Set the pet's color
+			$p->setColor($_POST['color']);
 			
-			$member->setEmail($_POST['email']);
-			$member->setState($_POST['st']);
-			$member->setSeek($_POST['seek']);
-			$member->setBios($_POST['bios']);
-			
-			$_SESSION['member'] = $member;
-			
-			if(get_class($member) == Premium)
-			{
-				$view = new View;
-				echo $view->render('pages/form3.html');
-			}else{
-				$view = new View;
-				echo $view->render('pages/summary.php');
-			}
-		}    
-	);
-	
-	//Define final summary route    
-	$f3->route('POST /summary', function() {
-			
-			$member = $_SESSION['member'];
-			
-			$member->setOutDoorInts($_POST['outInts']);
-			$member->setInDoorInts($_POST['inInts']);
-			
-			$_SESSION['member'] = $member;
+			//Set f3 variables
+			$f3->set('name', $p->getName());
+			$f3->set('color', $p->getColor());
 			
 			$view = new View;
-			echo $view->render('pages/summary.php');        
-		}    
-	);	
-	
+			echo $view->render('pages/results.html');
+			print_r($_SESSION);
+		});*/
 	
 	//Run fat free    
 	$f3->run();

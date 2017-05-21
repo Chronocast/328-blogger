@@ -37,20 +37,20 @@
          * Adds a blog to the collection of blogs in the db.
          *
          * @access public
-         * @param string $name the name of the pet
-         * @param string $type the type of pet (giraffe, turtle, bear, ...)
-         * @param string $color the color of the animal
+         * @param string $blogName the name of the blogger
+         * @param string $blogContent the content of the blog
+         * @param string $username the name of the blogger
          *
          * @return true if the insert was successful, otherwise false
          */
-        function addBlog($name, $type, $color)
+        function addBlog($username)
         {
-            $insert = 'INSERT INTO pets (name, type, color) VALUES (:name, :type, :color)';
+            $insert = 'INSERT INTO blogger (blogName, blogContent, username) VALUES (:blogName, :blogContent, :username)';
              
             $statement = $this->_pdo->prepare($insert);
-            $statement->bindValue(':name', $name, PDO::PARAM_STR);
-            $statement->bindValue(':type', $type, PDO::PARAM_STR);
-            $statement->bindValue(':color', $color, PDO::PARAM_STR);
+            $statement->bindValue(':blogName', $username, PDO::PARAM_STR);
+            $statement->bindValue(':blogContent', $username, PDO::PARAM_STR);
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
             
             $statement->execute();
             
@@ -58,14 +58,20 @@
             return $this->_pdo->lastInsertId();
         }
         
-        function addUser($name, $type, $color)
+        /**
+         * Adds a blogger to the collection of users in the db.
+         *
+         * @access public
+         * @param string $username the name of the blogger
+         *
+         * @return true if the insert was successful, otherwise false
+         */
+        function addBlogger($username)
         {
-            $insert = 'INSERT INTO pets (name, type, color) VALUES (:name, :type, :color)';
+            $insert = 'INSERT INTO blogs (username) VALUES (:username)';
              
             $statement = $this->_pdo->prepare($insert);
-            $statement->bindValue(':name', $name, PDO::PARAM_STR);
-            $statement->bindValue(':type', $type, PDO::PARAM_STR);
-            $statement->bindValue(':color', $color, PDO::PARAM_STR);
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
             
             $statement->execute();
             
@@ -124,6 +130,19 @@
          *
          * @return true if the name already exists, otherwise false
          */   
+        function petNameExists($name)
+        {            
+            $select = 'SELECT id, name, type, color FROM pets WHERE name=:name';
+             
+            $statement = $this->_pdo->prepare($select);
+            $statement->bindValue(':name', $name, PDO::PARAM_STR);
+            $statement->execute();
+             
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+             
+            return !empty($row);
+        }
+        
         function petNameExists($name)
         {            
             $select = 'SELECT id, name, type, color FROM pets WHERE name=:name';
