@@ -103,7 +103,7 @@
         }
          
         /**
-         * Returns a pet that has the given id.
+         * Returns a bloggers  that has the given id.
          *
          * @access public
          * @param int $id the id of the pet
@@ -112,16 +112,42 @@
          * the pet was not found
          */
         
-        /*function bloggerById($id)
+        function bloggerInfo($username)
         {
-            $select = 'SELECT userID, username, blogCount FROM blogger WHERE userID=:id';
+            $select = 'SELECT userID, username, blogCount FROM blogger WHERE username=:username';
              
             $statement = $this->_pdo->prepare($select);
-            $statement->bindValue(':id', $id, PDO::PARAM_INT);
+            $statement->bindValue(':username', $username, PDO::PARAM_INT);
             $statement->execute();
              
             return $statement->fetch(PDO::FETCH_ASSOC);
-        }*/
+        }
+         
+         /**
+         * Returns a bloggers  that has the given id.
+         *
+         * @access public
+         * @param int $id the id of the pet
+         *
+         * @return an associative array of pet attributes, or false if
+         * the pet was not found
+         */
+        
+        function bloggerBlogs($username)
+        {
+            $select = 'SELECT blogContent, blogDate, blogName, firstLine FROM blogs WHERE username=:username';
+            
+            $results = $this->_pdo->query($select);
+             
+            $resultsArray = array();
+             
+            //map each blog to a row of data by date
+            while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
+                $resultsArray[$row['blogDate']] = $row;
+            }
+             
+            return $resultsArray;
+        }
          
         /**
          * Returns true if the name is used by a pet in the database.

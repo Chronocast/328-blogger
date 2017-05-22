@@ -5,42 +5,27 @@
 
 
         <?php
-            //setup blogger info
+            //display blogger info
             $username = $blogger['username'];
             $blogCount = $blogger['blogCount'];
-			
-			$firstLine = $blogs['firstLine'];
-			
-			
-			//setup list of blogs
-				//then setup each blog's info
-				
-            //foreach($blogs as $blog) {
             
-            echo '	<div class="content">
-						<div class="wrap">
-							<div class="single-page">
-											<div class="single-page-artical">
-												<div class="artical-content">
-												<h1><a href="#">The Blog of ' . $username . '</a></h1>
-													<div class="single-page">
-														<h2><a href="#">Most Recent Blog</a></h2>
-														<p>' . $firstLine . '</p>
-													
-												
-												';
+            echo "	<h2>$username</h2>
+					<h3>$blogCount</h3>";
+                
+            //display list of blogs
+            //foreach($blogs as $blog) {
 		
 		?>
 		
-		<!---start-content
+		<!---start-content---->
 		<div class="content">
 			<div class="wrap">
 				<div class="single-page">
 								<div class="single-page-artical">
 									<div class="artical-content">
-										
-										<h3><a href="#">Blog Title</a></h3>
-										<p>Blog Contents: </p> 
+										<img src="images/single-post-pic.jpg" title="banner1">
+										<h3><a href="#">incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</a></h3>
+										<p></p> 
 										</div>
 										<div class="artical-links">
 										<ul>

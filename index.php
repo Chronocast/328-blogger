@@ -27,13 +27,29 @@
 			//Get all bloggers from the database
 			$bloggers = $GLOBALS['bloggerDB']->allBloggers();
 			
-			//Assign the pets to an f3 variable
+			//Assign the bloggers to an f3 variable
 			$f3->set('bloggers', $bloggers);
 			
 			//display page
 			$view = new View;
 			echo $view->render('pages/index.html');        
 		 });
+	
+	$f3->route('POST /bloggerPage',
+		function($f3) {
+			//get a blogger
+			$blogger = $GLOBALS['bloggerDB']->bloggerInfo($_POST['blogger']);
+			$bloggersBlogs = $GLOBALS['bloggerDB']->bloggerBlogs($_POST['blogger']);
+			
+			$f3->set('blogger', $blogger);
+			$f3->set('bloggersBlogs', $bloggersBlogs);
+			
+			$view = new View;
+		    echo $view->render('pages/blogger.html');
+			//print_r($_SESSION);
+		});
+	
+	
 	
 	/*$f3->route('GET /create',
 		function() {            
