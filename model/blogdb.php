@@ -45,7 +45,7 @@
          */
         function addBlog($blogName, $blogContent, $username)
         {
-            $insert = 'INSERT INTO blogger (blogName, blogContent, author) VALUES (:blogName, :blogContent, :author)';
+            $insert = 'INSERT INTO blogs (blogName, blogContent, username) VALUES (:blogName, :blogContent, :username)';
              
             $statement = $this->_pdo->prepare($insert);
             $statement->bindValue(':blogName', $username, PDO::PARAM_STR);
@@ -117,14 +117,14 @@
             $select = 'SELECT userID, username, blogCount FROM blogger WHERE username=:username';
              
             $statement = $this->_pdo->prepare($select);
-            $statement->bindValue(':username', $username, PDO::PARAM_INT);
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
             $statement->execute();
              
             return $statement->fetch(PDO::FETCH_ASSOC);
         }
          
          /**
-         * Returns a bloggers  that has the given id.
+         * Returns a blogger that has the given username.
          *
          * @access public
          * @param int $id the id of the pet
@@ -135,19 +135,46 @@
         
         function bloggerBlogs($username)
         {
-            $select = 'SELECT blogContent, blogDate, blogName, firstLine FROM blogs WHERE username=:username';
             
-            $results = $this->_pdo->query($select);
+            
+            $select = 'SELECT * FROM blogs WHERE username=:username ORDER BY blogDate';
+            
+            $results = $this->_pdo->prepare($select);
+            $results->bindValue(':username', $username, PDO::PARAM_STR);
+            $results->execute();
              
             $resultsArray = array();
              
             //map each blog to a row of data by date
-            while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
-                $resultsArray[$row['blogDate']] = $row;
-            }
+            $rows = $results->fetchAll(PDO::FETCH_ASSOC);
              
-            return $resultsArray;
+            return $rows;
         }
+         
+         //GETTER
+         /**
+         * Returns true if the name is used by a pet in the database.
+         *
+         * @access public
+         * @param string $name the name of the pet to look for
+         *
+         * @return true if the name already exists, otherwise false
+         */   
+        
+        
+        function getBlogger($name)
+        {            
+            $select = 'SELECT username FROM blogs WHERE username=:username';
+             
+            $statement = $this->_pdo->prepare($select);
+            $statement->bindValue(':username', $name, PDO::PARAM_STR);
+            $statement->execute();
+             
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+             
+            return $row;
+        }
+         
          
         /**
          * Returns true if the name is used by a pet in the database.

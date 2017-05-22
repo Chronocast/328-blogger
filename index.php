@@ -20,6 +20,7 @@
 	//Instantiate the database class
 	$bloggerDB = new BlogsDB();
 	
+	
     //Define a default route    
 	$f3->route('GET /',
 		function($f3) {
@@ -38,15 +39,19 @@
 	$f3->route('POST /bloggerPage',
 		function($f3) {
 			//get a blogger
-			$blogger = $GLOBALS['bloggerDB']->bloggerInfo($_POST['blogger']);
-			$bloggersBlogs = $GLOBALS['bloggerDB']->bloggerBlogs($_POST['blogger']);
+			$user = $_POST['blogger'];
+			$blogger = $GLOBALS['bloggerDB']->bloggerInfo($user);
+			
+			
+			
+			$bloggersBlogs = $GLOBALS['bloggerDB']->bloggerBlogs($user);
 			
 			$f3->set('blogger', $blogger);
 			$f3->set('bloggersBlogs', $bloggersBlogs);
 			
 			$view = new View;
-		    echo $view->render('pages/blogger.html');
-			//print_r($_SESSION);
+		    echo Template::instance()->render('pages/blogger.html');
+			
 		});
 	
 	
