@@ -1,6 +1,6 @@
 
 		
-		<include href="pages/header.html" />
+		<?php echo $this->render('pages/header.html',NULL,get_defined_vars(),0); ?>
 		
 		<!---start-content---->
 		<div class="content">
@@ -10,16 +10,16 @@
 					
 					
 			        <!-- These are our grid blocks -->
-					<repeat group="{{ @recentBlogs }}" value="{{ @blog }}" > 
+					<?php foreach (($recentBlogs?:[]) as $blog): ?> 
 									<li>
 										<form action='./bloggerPage' method='POST'>
 											<img src='images/Roy.jpg' width='282' height='333'>
 											<div class='post-info'>
 												<div class='post-basic-info'>
-													<input type='hidden' name='blogger' value='{{ @blog['username'] }}' />
-													<h3><a href='#'>{{ @blog['username'] }}</a></h3>
+													<input type='hidden' name='blogger' value='<?= $blog['username'] ?>' />
+													<h3><a href='#'><?= $blog['username'] ?></a></h3>
 													<span><input class='form-control btn btn-default' type='submit' value='View my blogs!'></span>
-													<p>Something from my latest blog: {{ @blog['firstLine'] }}</p>
+													<p>Something from my latest blog: <?= $blog['firstLine'] ?></p>
 												</div>
 												<div class='post-info-rate-share'>
 													<div>
@@ -35,7 +35,7 @@
 									</li>
 										
 									<!-- end block -->
-					</repeat>
+					<?php endforeach; ?>
 			        <!-- End of grid blocks -->
 			      </ul>
 			    </div>
@@ -43,6 +43,6 @@
 		</div>
 		<!---//End-content---->
 		
-		<include href="pages/footer.html" />
+		<?php echo $this->render('pages/footer.html',NULL,get_defined_vars(),0); ?>
 		
 		

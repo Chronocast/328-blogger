@@ -137,7 +137,7 @@
         {
             
             
-            $select = 'SELECT * FROM blogs WHERE username=:username ORDER BY blogDate';
+            $select = 'SELECT * FROM blogs WHERE username=:username ORDER BY blogDate DESC';
             
             $results = $this->_pdo->prepare($select);
             $results->bindValue(':username', $username, PDO::PARAM_STR);
@@ -162,17 +162,17 @@
          */   
         
         
-        function getBlogger($name)
+        function mostRecentBlog($username)
         {            
-            $select = 'SELECT username FROM blogs WHERE username=:username';
+            $select = 'SELECT firstLine, blogName, blogDate, username FROM blogs WHERE username=:username ORDER BY blogDate DESC LIMIT 1';
              
             $statement = $this->_pdo->prepare($select);
-            $statement->bindValue(':username', $name, PDO::PARAM_STR);
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
             $statement->execute();
              
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
+            $rows = $statement->fetch(PDO::FETCH_ASSOC);
              
-            return $row;
+            return $rows;
         }
          
          

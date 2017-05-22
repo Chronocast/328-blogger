@@ -27,13 +27,21 @@
   
 			//Get all bloggers from the database
 			$bloggers = $GLOBALS['bloggerDB']->allBloggers();
+			//print_r($bloggers);			//get the most recent blog infor for each blogger
+			$recentBlogsArray = array();
+			
+			foreach($bloggers as $blogger){
+				
+				array_push($recentBlogsArray, $GLOBALS['bloggerDB']->mostRecentBlog($blogger['username']));
+			}
 			
 			//Assign the bloggers to an f3 variable
 			$f3->set('bloggers', $bloggers);
+			$f3->set('recentBlogs', $recentBlogsArray);
 			
 			//display page
 			$view = new View;
-			echo $view->render('pages/index.html');        
+			echo Template::instance()->render('pages/index.html');        
 		 });
 	
 	$f3->route('POST /bloggerPage',

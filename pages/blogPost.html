@@ -1,21 +1,5 @@
-		<?php
-			require("pages/header.html");
-		?>
+<include href="pages/header.html" />
 
-
-
-        <?php
-            //display blogger info
-            $username = $blogger['username'];
-            $blogCount = $blogger['blogCount'];
-            
-            echo "	<h2>$username</h2>
-					<h3>$blogCount</h3>";
-                
-            //display list of blogs
-            //foreach($blogs as $blog) {
-		
-		?>
 		
 		<!---start-content---->
 		<div class="content">
@@ -42,6 +26,4 @@
 		<!---end-content---->
 
 
-		<?php
-			require("pages/footer.html");
-		?>
+<include href="pages/footer.html" />
