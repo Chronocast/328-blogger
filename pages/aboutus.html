@@ -2,17 +2,19 @@
 			
 		
 				<div class="row">
-					<div class="col-8">						
+					<div class="col-9">						
 						<div class="jumbotron">
 							<h2>The Blog of Bloggers</h2>
 							<h4>Your one-stop shop for internet blogs</h4>
-							<img src="images/blog.jpg">
 						</div>
-							
-					</div>
+                    </div>    
+                    <div class="col-md-3">
+                         <img src="images/blog.jpg" class="shrink pull-right">   
+                    </div>
+                    
                 </div>
                 <div class="row"></div>
-					<div class="col-">
+					<div class="col-12">
 						<div class="jumbotron">
 							<h3>The internet is abuzz with our blog content</h3>
                             <hr>
