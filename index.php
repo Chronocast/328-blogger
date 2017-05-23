@@ -73,7 +73,7 @@
 			$f3->set('blog', $blog);
 			
 			$view = new View;
-		    echo Template::instance()->render('pages/blogPost.html');
+		    //echo Template::instance()->render('pages/blogPost.html');
 			
 		});
 	
@@ -111,6 +111,12 @@
 			echo $view->render('pages/results.html');
 			print_r($_SESSION);
 		});*/
+	
+	$f3->route('GET /aboutUs',
+		function() {            
+		    $view = new View;
+			echo Template::instance()->render('pages/aboutus.html');        
+		 });
 	
 	//Run fat free    
 	$f3->run();

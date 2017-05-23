@@ -12,7 +12,7 @@
 								<div class="jumbotron">
 									<div>
 										<form method="POST" action="./blogPage" id="sender">
-											<input type='hidden' name="<?= $blog['blogName'] ?>" value="<?= $blog ?>" />
+											<input type='hidden' name="<?= $blog ?>" value="<?= $blog ?>" />
 										</form>
 										<h4><div class="hylianLink" id="submit" onClick="indexRoutingLink();"><?= $blog['blogName'] ?></h4>
 										<h5>Posted: <?= $blog['blogDate'] ?></h5>
@@ -24,7 +24,7 @@
 					</div>
 					<div class="col">
 						<div class="jumbotron">
-							<img class="img-fluid tiny"src="images/RoyRedLion.PNG">
+							<img class="img-fluid"src="images/RoyRedLion.PNG">
 							<h3><?= $blogger['username'] ?></h3>
 							<p><?= $blogger['bio'] ?></p>
 						</div>

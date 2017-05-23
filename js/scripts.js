@@ -7,7 +7,7 @@
      */
 
 function indexRoutingLink(){
-    b = document.getElementById('sender');
+    var b = document.getElementById('sender');
     if(b){
         b.submit();
     }
