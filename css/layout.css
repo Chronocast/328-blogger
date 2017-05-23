@@ -29,3 +29,16 @@
 .boxer {
   background-color: #2ba6cb;
 }
+
+textarea{
+    min-width: 100%;
+}
+
+notepad {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.brand-logo {
+    width: 25px;
+}

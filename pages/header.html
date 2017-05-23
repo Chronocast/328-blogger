@@ -22,12 +22,13 @@
 		<div class="container-fluid">
 			<div class="row no-rightgutters">
 					
-					<nav class="nav flex-column" name="navigator">
-						<a class="nav-link active" href="./">Home</a>
-						<a class="nav-link" href="./createAccount">Become a Blogger</a>
-						<a class="nav-link" href="./aboutus">About Us</a>
-						<a class="nav-link" href="./contact">Login</a>
-					</nav>
+				<nav class="nav flex-column" name="navigator">
+					<a class="nav-link" href="./"><img class="brand-logo" src="images/blog-symbol.jpg"></a>
+					<a class="nav-link active" href="./">Home</a>
+					<a class="nav-link" href="./createAccount">Become a Blogger</a>
+					<a class="nav-link" href="./aboutus">About Us</a>
+					<a class="nav-link" href="./contact">Login</a>
+				</nav>
 				
 
 			
