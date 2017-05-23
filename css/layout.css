@@ -3,14 +3,3 @@
      * @author Nate Hascup <nshascup@gmail.com>
      * @version 1.0
      */
-
-.row.no-rightgutters {
-  margin-right: 0;
-
-
-  & > [class^="col-"],
-  & > [class*=" col-"] {
-    padding-right: 0;
-
-  }
-}

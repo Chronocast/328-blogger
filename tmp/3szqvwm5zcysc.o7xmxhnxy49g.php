@@ -12,7 +12,7 @@
 								<img class="card-img-top img-fluid" src='images/Roy.jpg'> 
 								<div class="card-block">
 									<h4 class="card-title"><?= $blog['username'] ?></h4>
-									<p class="card-text">Something from my latest blog: <?= $blog['firstLine'] ?></p>
+									<p class="card-text">Something from my latest blog: <blockquote><?= $blog['firstLine'] ?></blockquote></p>
 									<form action='./bloggerPage' method='POST'>
 										<input type='hidden' name='blogger' value='<?= $blog['username'] ?>' />
 										<input class='btn btn-primary' type='submit' value='View my blogs!'>

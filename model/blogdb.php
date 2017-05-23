@@ -114,7 +114,7 @@
         
         function bloggerInfo($username)
         {
-            $select = 'SELECT userID, username, blogCount FROM blogger WHERE username=:username';
+            $select = 'SELECT * FROM blogger WHERE username=:username';
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':username', $username, PDO::PARAM_STR);
@@ -164,7 +164,7 @@
         
         function mostRecentBlog($username)
         {            
-            $select = 'SELECT firstLine, blogName, blogDate, username FROM blogs WHERE username=:username ORDER BY blogDate DESC LIMIT 1';
+            $select = 'SELECT * FROM blogs WHERE username=:username ORDER BY blogDate DESC LIMIT 1';
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':username', $username, PDO::PARAM_STR);

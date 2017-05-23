@@ -50,12 +50,13 @@
 			$user = $_POST['blogger'];
 			$blogger = $GLOBALS['bloggerDB']->bloggerInfo($user);
 			
-			
+			$recentBlog = $GLOBALS['bloggerDB']->mostRecentBlog($user);
 			
 			$bloggersBlogs = $GLOBALS['bloggerDB']->bloggerBlogs($user);
 			
 			$f3->set('blogger', $blogger);
 			$f3->set('bloggersBlogs', $bloggersBlogs);
+			$f3->set('recentBlog', $recentBlog);
 			
 			$view = new View;
 		    echo Template::instance()->render('pages/blogger.html');
