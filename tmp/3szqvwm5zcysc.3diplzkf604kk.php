@@ -9,11 +9,11 @@
 							<div class="navbar-brand-logo">
 								<div class="d-flex flex-column">
 									<div class="p-2"><img class="img-fluid tiny"src="images/RoyRedLion.PNG"></div>
-									<div class="p-2"><h3><?= $blog['blogName'] ?></h3></div>
-									<div class="p-2"><p><?= $blog['blogContent'] ?></p></div>
+									<div class="p-2"><h3>Blog Title?!?<?= $blog['blogName'] ?></h3></div>
+									<div class="p-2"><p>Blog Content?!?<?= $blog['blogContent'] ?></p></div>
 									<div class="p-2">
 											<ul class="nav nav-fill">
-												<li class="nav-item"><a href="#"><img src="images/blog-icon2.png" title="Admin"><span>admin</span></a></li>
+												<li class="nav-item"><a href="#"><img src="images/blog-icon2.png" title="Admin"><span>Admin</span></a></li>
 												<li class="nav-item"><a href="#"><img src="images/blog-icon3.png" title="Comments"><span>No comments</span></a></li>
 												<li class="nav-item"><a href="#"><img src="images/blog-icon4.png" title="Lables"><span>View posts</span></a></li>
 											</ul>

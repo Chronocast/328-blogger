@@ -27,7 +27,7 @@
 					<a class="nav-link active" href="./">Home</a>
 					<a class="nav-link" href="./createAccount">Become a Blogger</a>
 					<a class="nav-link" href="./aboutus">About Us</a>
-					<a class="nav-link" href="./contact">Login</a>
+					<a class="nav-link" href="./login">Login</a>
 				</nav>
 				
 

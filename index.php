@@ -67,10 +67,15 @@
 	$f3->route('POST /blogPage',
 		function($f3) {
 			//get a blog
+			
 			$blog = $_POST['blog'];
 			
+			print_r($blog);
 			
-			$f3->set('blog', $blog);
+			//$theBlog = $GLOBALS['bloggerDB']->getBlog($blog['username'], $blog['blogName']);
+			
+			//$f3->set('username', $blog['username']);
+			//$f3->set('blogContent', $blog['blogContent']);
 			
 			$view = new View;
 		    echo Template::instance()->render('pages/blogPost.html');
@@ -111,6 +116,12 @@
 			echo $view->render('pages/results.html');
 			print_r($_SESSION);
 		});*/
+	
+	$f3->route('GET /login',
+		function() {            
+		    $view = new View;
+			echo Template::instance()->render('pages/login.html');        
+		 });
 	
 	$f3->route('GET /createAccount',
 		function() {            

@@ -174,6 +174,30 @@
              
             return $rows;
         }
+        
+         /**
+         * Returns true if the name is used by a pet in the database.
+         *
+         * @access public
+         * @param string $name the name of the pet to look for
+         *
+         * @return true if the name already exists, otherwise false
+         */   
+        
+        
+        /*function getBlog($username, $blogName)
+        {            
+            $select = 'SELECT * FROM blogs WHERE username=:username, blogNamer=:blogName';
+             
+            $statement = $this->_pdo->prepare($select);
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
+            $statement->bindValue(':blogName', $blogName, PDO::PARAM_STR);
+            $statement->execute();
+             
+            $rows = $statement->fetch(PDO::FETCH_ASSOC);
+             
+            return $rows;
+        }*/
          
          
         /**
