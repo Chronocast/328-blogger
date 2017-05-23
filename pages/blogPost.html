@@ -7,18 +7,18 @@
 					<div class="col">
 						<div class="jumbotron">
 							<div class="navbar-brand-logo">
-								<img class="img-fluid tiny"src="images/RoyRedLion.PNG">
-								<h3>{{ @blog['blogName'] }}</h3>
-								<p>{{ @blog['blogContent'] }}</p> 
-								</div>
-								<div class="artical-links">
-								<ul>
-									<li><a href="#"><img src="images/blog-icon2.png" title="Admin"><span>admin</span></a></li>
-									<li><a href="#"><img src="images/blog-icon3.png" title="Comments"><span>No comments</span></a></li>
-									<li><a href="#"><img src="images/blog-icon4.png" title="Lables"><span>View posts</span></a></li>
-								</ul>
-							 </div>
-							 <div class="clear"> </div>
+								<div class="d-flex flex-column">
+									<div class="p-2"><img class="img-fluid tiny"src="images/RoyRedLion.PNG"></div>
+									<div class="p-2"><h3>{{ @blog['blogName'] }}</h3></div>
+									<div class="p-2"><p>{{ @blog['blogContent'] }}</p></div>
+									<div class="p-2">
+											<ul class="nav nav-fill">
+												<li class="nav-item"><a href="#"><img src="images/blog-icon2.png" title="Admin"><span>admin</span></a></li>
+												<li class="nav-item"><a href="#"><img src="images/blog-icon3.png" title="Comments"><span>No comments</span></a></li>
+												<li class="nav-item"><a href="#"><img src="images/blog-icon4.png" title="Lables"><span>View posts</span></a></li>
+											</ul>
+									</div>
+							</div>
 						</div>
 					</div>
 				</div>

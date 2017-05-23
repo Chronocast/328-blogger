@@ -68,13 +68,12 @@
 		function($f3) {
 			//get a blog
 			$blog = $_POST['blog'];
-			print_r($blog);
 			
 			
 			$f3->set('blog', $blog);
 			
 			$view = new View;
-		    //echo Template::instance()->render('pages/blogPost.html');
+		    echo Template::instance()->render('pages/blogPost.html');
 			
 		});
 	

@@ -50,7 +50,7 @@
             $statement = $this->_pdo->prepare($insert);
             $statement->bindValue(':blogName', $username, PDO::PARAM_STR);
             $statement->bindValue(':blogContent', $username, PDO::PARAM_STR);
-            $statement->bindValue(':author', $author, PDO::PARAM_STR);
+            $statement->bindValue(':username', $author, PDO::PARAM_STR);
             
             $statement->execute();
             
