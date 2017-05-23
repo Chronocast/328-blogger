@@ -6,6 +6,8 @@
      * My JS functions
      */
 
+document.getElementById("hylianLink").addEventListener("click", indexRoutingLink);
+
 function indexRoutingLink(){
     var b = document.getElementById('sender');
     if(b){

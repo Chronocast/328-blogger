@@ -14,7 +14,7 @@
                     
                 </div>
                 <div class="row"></div>
-					<div class="col-12">
+					<div class="col-9">
 						<div class="jumbotron">
 							<h3>The internet is abuzz with our blog content</h3>
                             <hr>

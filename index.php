@@ -38,6 +38,7 @@
 			//Assign the bloggers to an f3 variable
 			$f3->set('bloggers', $bloggers);
 			$f3->set('recentBlogs', $recentBlogsArray);
+			$f3->set('jpg', "jpg");
 			
 			//display page
 			$view = new View;
@@ -111,6 +112,12 @@
 			echo $view->render('pages/results.html');
 			print_r($_SESSION);
 		});*/
+	
+	$f3->route('GET /createAccount',
+		function() {            
+		    $view = new View;
+			echo Template::instance()->render('pages/createAccount.html');        
+		 });
 	
 	$f3->route('GET /aboutUs',
 		function() {            
