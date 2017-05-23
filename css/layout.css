@@ -3,3 +3,20 @@
      * @author Nate Hascup <nshascup@gmail.com>
      * @version 1.0
      */
+
+.hylianLink {
+    
+    color: #0275d8;
+    text-decoration: none;
+
+}
+
+.hylianLink:focus, .hylianLink:hover {
+    color: #014c8c;
+    text-decoration: underline;
+}
+
+.tiny {
+    width: 200px;
+    float: right;
+}

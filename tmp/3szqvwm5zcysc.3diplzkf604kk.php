@@ -1,4 +1,4 @@
-<include href="pages/header.html" />
+<?php echo $this->render('pages/header.html',NULL,get_defined_vars(),0); ?>
 
 		
 				<!---start-content---->
@@ -8,8 +8,8 @@
 						<div class="jumbotron">
 							<div class="navbar-brand-logo">
 								<img class="img-fluid tiny"src="images/RoyRedLion.PNG">
-								<h3>{{ @blog['blogName'] }}</h3>
-								<p>{{ @blog['blogContent'] }}</p> 
+								<h3><?= $blog['blogName'] ?></h3>
+								<p><?= $blog['blogContent'] ?></p> 
 								</div>
 								<div class="artical-links">
 								<ul>
@@ -27,4 +27,4 @@
 		<!---end-content---->
 
 
-<include href="pages/footer.html" />
+<?php echo $this->render('pages/footer.html',NULL,get_defined_vars(),0); ?>

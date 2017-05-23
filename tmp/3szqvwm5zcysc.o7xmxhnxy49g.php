@@ -9,12 +9,12 @@
 							<!-- begin card -->
 							<?php foreach (($recentBlogs?:[]) as $blog): ?>
 							<div class="card mb-4">
-								<img class="card-img-top img-fluid" src='images/Roy.jpg'> 
+								<img class="card-img-top img-fluid" src='images/RoyRedLion.PNG'> 
 								<div class="card-block">
 									<h4 class="card-title"><?= $blog['username'] ?></h4>
 									<p class="card-text">Something from my latest blog: <blockquote><?= $blog['firstLine'] ?></blockquote></p>
 									<form action='./bloggerPage' method='POST'>
-										<input type='hidden' name='blogger' value='<?= $blog['username'] ?>' />
+										<input type='hidden' name='blogger' value="<?= $blog['username'] ?>" />
 										<input class='btn btn-primary' type='submit' value='View my blogs!'>
 									</form>
 								</div>

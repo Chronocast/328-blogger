@@ -11,20 +11,20 @@
 							<repeat group="{{ @bloggersBlogs }}" value="{{ @blog }}" >
 								<div class="jumbotron">
 									<div>
-											<div class="grid_text">
-												<h4 class="style1 list"><a href="">{{ @blog['blogName'] }}</a></h4>
-												<h5 class="style">Posted: {{ @blog['blogDate'] }}</h5>
-												<p class="para top">{{ @blog['firstLine'] }}</p>
-											</div>
-											<div class="clear"></div>
-										</div>
+										<form method="POST" action="./blogPage" id="sender">
+											<input type='hidden' name="{{ @blog['blogName'] }}" value="{{ @blog }}" />
+										</form>
+										<h4><div class="hylianLink" id="submit" onClick="indexRoutingLink();">{{ @blog['blogName'] }}</h4>
+										<h5>Posted: {{ @blog['blogDate'] }}</h5>
+										<p>{{ @blog['firstLine'] }}</p>
+									</div>
 								</div>
 							</repeat>
 						</div>
 					</div>
 					<div class="col">
 						<div class="jumbotron">
-							<img class="img-fluid"src="images/Roy.jpg">
+							<img class="img-fluid tiny"src="images/RoyRedLion.PNG">
 							<h3>{{ @blogger['username'] }}</h3>
 							<p>{{ @blogger['bio'] }}</p>
 						</div>
