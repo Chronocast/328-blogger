@@ -10,21 +10,21 @@
 	<head>
 		<title>The Bloggery | Home</title>
 		<link href="css/index.css" rel='stylesheet' type='text/css' />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="../images/RoySprite.png" />
 	</head>
 	<body>
-		<!---start-header needs to not be a navbar class to allow left leaning :P  ---->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-2">
-					<ul>
-						<li><a href="#"><span>Users</span></a></li>
-						<li><a href="#"><span>Works</span></a></li>
-						<li><a href="#"><span>Blog</span></a></li>
-						<li><a href="contact.html"><span>Contact</span></a></li>
-						<div class="clear"> </div>
-					</ul>
-				</div>                       
+		<!---start-header needs to not be a navbar class to allow left leaning :P
+		***psych! I found a way with nav bars!---->
+		<div class="container">
+			<div class=""></div>
+			<nav class="nav flex-column">
+				<a class="nav-link active" href="#">Users</a>
+				<a class="nav-link disabled" href="#">Works</a>
+				<a class="nav-link disabled" href="#">Blog</a>
+				<a class="nav-link disabled" href="contact.html">Contact</a>
+			</nav>
+			
 		<!---//End-header---->
