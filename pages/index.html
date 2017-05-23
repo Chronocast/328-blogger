@@ -3,26 +3,34 @@
 			
 				<!-- These are our grid blocks 	---->
 
-							
-		<div class="card-columns">
-			<!-- begin block -->
-			<repeat group="{{ @recentBlogs }}" value="{{ @blog }}">
-			<div class="card">
-				<img class="card-img-top img-fluid" src='images/Roy.jpg'> 
-				<div class="card-block">
-					<h4 class="card-title">{{ @blog['username'] }}</h4>
-					<p class="card-text">Something from my latest blog: {{ @blog['firstLine'] }}</p>
-					<form action='./bloggerPage' method='POST'>
-						<input type='hidden' name='blogger' value='{{ @blog['username'] }}' />
-						<input class='btn btn-primary' type='submit' value='View my blogs!'>
-					</form>
-				</div>
+				<div class="col">			
+
+						<div class="card-deck">
+							<!-- begin card -->
+							<repeat group="{{ @recentBlogs }}" value="{{ @blog }}">
+							<div class="card mb-4">
+								<img class="card-img-top img-fluid" src='images/Roy.jpg'> 
+								<div class="card-block">
+									<h4 class="card-title">{{ @blog['username'] }}</h4>
+									<p class="card-text">Something from my latest blog: {{ @blog['firstLine'] }}</p>
+									<form action='./bloggerPage' method='POST'>
+										<input type='hidden' name='blogger' value='{{ @blog['username'] }}' />
+										<input class='btn btn-primary' type='submit' value='View my blogs!'>
+									</form>
+								</div>
+							</div>
+							<!--<div class="w-100 hidden-sm-down hidden-lg-up"><!-- wrap every 3 on md</div>-->
+							<!--<div class="w-100 hidden-xs-down hidden-md-up"> wrap every 2 on sm</div>-->
+							<!--<div class="w-100 hidden-md-down hidden-xl-up"> wrap every 4 on lg</div>-->
+							<!--<div class="w-100 hidden-lg-down"> wrap every 5 on xl</div>-->
+							</repeat>
+							<!-- end card -->
+						</div>
+
+				</div>			
+						<!-- End of grid cards -->
 			</div>
-			</repeat>
-			<!-- end block -->
 		</div>
-						
-				<!-- End of grid blocks -->
 
 		<include href="pages/footer.html" />
 		

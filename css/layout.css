@@ -4,6 +4,13 @@
      * @version 1.0
      */
 
-#navigator{
-    margin-top: 50px;
+.row.no-rightgutters {
+  margin-right: 0;
+
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 0;
+
+  }
 }
