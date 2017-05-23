@@ -18,13 +18,14 @@
 	<body>
 		<!---start-header needs to not be a navbar class to allow left leaning :P
 		***psych! I found a way with nav bars!---->
-		<div class="container">
-			<div class=""></div>
+		<header>
 			<nav class="nav flex-column">
 				<a class="nav-link active" href="#">Users</a>
 				<a class="nav-link disabled" href="#">Works</a>
-				<a class="nav-link disabled" href="#">Blog</a>
-				<a class="nav-link disabled" href="contact.html">Contact</a>
+				<a class="nav-link" href="#">Blog</a>
+				<a class="nav-link" href="contact.html">Contact</a>
 			</nav>
+		</header>
+
 			
 		<!---//End-header---->
