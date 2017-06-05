@@ -9,7 +9,7 @@
 							<!-- begin card -->
 							<?php foreach (($recentBlogs?:[]) as $blog): ?>
 							<div class="card mb-4">
-								<img class="card-img-top img-fluid" src='images/RoyRedLion.PNG'> 
+								<img class="card-img-top rounded-circle" src='images/RoyRedLion.PNG' width=100px height=100px> 
 								<div class="card-block">
 									<h4 class="card-title"><?= $blog['username'] ?></h4>
 									<p class="card-text">Something from my latest blog: <blockquote><?= $blog['firstLine'] ?></blockquote></p>

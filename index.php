@@ -82,13 +82,26 @@
 			
 		});
 	
-	/*$f3->route('GET /create',
-		function() {            
+	$f3->route('POST /validation',
+		function($f3) {
+			
+			$username = $_POST['username'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			$verify = $_POST['verify'];
+			$bios = $_POST['bios'];
+
+			$f3->set('username', $username);
+			$f3->set('email', $email);
+			$f3->set('password', $password);
+			$f3->set('verify', $verify);
+			$f3->set('bios', $bios);
+			
 		    $view = new View;
-			echo $view->render('pages/form1.html');        
+			echo Template::instance()->render('pages/results.php');        
 		 });
 	
-	$f3->route('POST /form2',
+	/*$f3->route('POST /form2',
 		function() {
 			//Create a pet object
 			$p = new Pet();
